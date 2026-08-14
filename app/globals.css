@@ -1,0 +1,172 @@
+:root {
+  /* Warm-paper anchor (hue 75) — Hallmark palette recipe: paper / ink / neutrals / one accent */
+  --color-paper:    oklch(97% 0.012 75);
+  --color-paper-2:  oklch(94% 0.014 75);
+  --color-rule:     oklch(85% 0.014 75);
+  --color-neutral:  oklch(58% 0.012 75);
+  --color-muted:    oklch(45% 0.012 70);
+  --color-ink:      oklch(22% 0.014 60);
+  --color-accent:   oklch(46% 0.11 265);   /* deep indigo — app-level accent, distinct from per-child colours */
+  --color-focus:    oklch(60% 0.15 265);
+  --color-danger:   oklch(50% 0.15 25);
+
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Geist', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 16px;
+  --radius-control: 10px;
+}
+
+.pk-shell {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow-x: clip;
+}
+.pk-shell h1, .pk-shell h2, .pk-shell h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: normal;
+  margin: 0;
+}
+.pk-card {
+  background: #fff;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.pk-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+@media (max-width: 380px) {
+  .pk-row2 { grid-template-columns: 1fr; }
+}
+
+.pk-input {
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  padding: 9px 11px;
+  font-size: 13px;
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #fff;
+}
+.pk-input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.pk-btn {
+  font-family: var(--font-body);
+  border: none;
+  border-radius: var(--radius-control);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.pk-btn:hover { transform: translateY(-1px); }
+.pk-btn:active { transform: translateY(0); }
+.pk-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.pk-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.pk-btn-primary {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 10px 18px;
+  font-size: 13px;
+}
+.pk-btn-primary:hover { background: var(--color-accent); }
+
+.pk-btn-ghost {
+  background: transparent;
+  color: var(--color-neutral);
+  padding: 6px 10px;
+  font-size: 12px;
+}
+.pk-btn-ghost:hover { color: var(--color-danger); }
+
+.pk-pill {
+  flex: 1;
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--color-ink);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.pk-pill:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.pk-pill.active {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.pk-status-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--color-rule);
+  background: #fff;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.12s ease;
+}
+.pk-status-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@keyframes pk-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.pk-celebrate { animation: pk-pop 0.45s ease; }
+
+@keyframes pk-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pk-fade-in { animation: pk-fade-up 0.35s ease; }
+
+.pk-halo {
+  background: radial-gradient(circle, var(--halo-color) 0%, transparent 72%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pk-dots {
+  background-image: radial-gradient(var(--color-rule) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+@media (max-width: 320px) {
+  .pk-shell { padding: 14px; }
+}
