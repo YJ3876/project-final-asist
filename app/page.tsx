@@ -564,6 +564,7 @@ function ChildProfile({ data, act, childId, onBack }: any) {
       {showPlanner && <PlannerView data={data} act={act} childId={childId} />}
 
       {!showPlanner && (
+      <>
       <Card>
         <div className="pk-dots" style={{ display: 'flex', alignItems: 'center', gap: 14, margin: '-16px', padding: 16, borderRadius: 16 }}>
           <div className="pk-halo" style={{ width: 82, height: 82, borderRadius: '50%', ['--halo-color' as any]: col.bg }}>
@@ -635,6 +636,7 @@ function ChildProfile({ data, act, childId, onBack }: any) {
           ))
         )}
       </Card>
+      </>
       )}
     </>
   );
